@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/Field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ToolsLinearLayout"
+        android:layout_width="48dp"
+        android:layout_height="216dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/TimelapseButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/lightCoral"
+            android:foreground="@android:drawable/ic_media_play"
+            android:foregroundGravity="center"
+            android:foregroundTint="@color/white"
+            android:onClick="onClickTimeLapse" />
+
+        <Button
+            android:id="@+id/GenerationUpdateButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/lightCoral"
+            android:foreground="@android:drawable/stat_notify_sync_noanim"
+            android:foregroundGravity="center"
+            android:foregroundTint="@color/white"
+            android:onClick="onClickNewGeneration" />
+
+        <Button
+            android:id="@+id/EraserButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/lightRed"
+            android:foreground="@android:drawable/ic_input_delete"
+            android:foregroundGravity="center"
+            android:foregroundTint="@color/white"
+            android:onClick="onClickEraser" />
+
+        <Button
+            android:id="@+id/ClearFieldButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/lightCoral"
+            android:foreground="@android:drawable/ic_delete"
+            android:foregroundGravity="center"
+            android:foregroundTint="@color/white"
+            android:onClick="onClickClearField" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ToggleVisibilityButton"
+        android:layout_width="48dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="240dp"
+        android:background="@color/lightGray"
+        android:foreground="@android:drawable/arrow_down_float"
+        android:foregroundGravity="center"
+        android:onClick="onClickToggleVisibility"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/SettingsToggleButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/lightGray"
+        android:foreground="@android:drawable/ic_menu_sort_by_size"
+        android:foregroundGravity="center"
+        android:foregroundTint="@color/white"
+        android:onClick="onClickSettings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TableLayout
+        android:id="@+id/SettingsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/border"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/SettingsToggleButton"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/WidthLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/widthLabel"
+                android:textColor="@android:color/secondary_text_light" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SeekBar
+                android:id="@+id/WidthSeekBar"
+                android:layout_width="169dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:min="1"
+                android:progressTint="@color/lightRed"
+                android:thumbTint="@color/lightCoral" />
+
+            <EditText
+                android:id="@+id/WidthTextNumber"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:autofillHints="1"
+                android:backgroundTint="@color/lightCoral"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/lightCoral"
+                android:textColorLink="@color/lightCoral"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/HeightLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/heightLabel"
+                android:textColor="@android:color/secondary_text_light" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SeekBar
+                android:id="@+id/HeightSeekBar"
+                android:layout_width="169dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:min="1"
+                android:progressTint="@color/lightRed"
+                android:thumbTint="@color/lightCoral" />
+
+            <EditText
+                android:id="@+id/HeightTextNumber"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:autofillHints="1"
+                android:backgroundTint="@color/lightCoral"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/lightCoral"
+                android:textColorLink="@color/lightCoral"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/SpeedLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/speedLabel"
+                android:textColor="@android:color/secondary_text_light" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <SeekBar
+                android:id="@+id/SpeedSeekBar"
+                android:layout_width="169dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:max="99"
+                android:min="1"
+                android:progressTint="@color/lightRed"
+                android:thumbTint="@color/lightCoral" />
+
+            <EditText
+                android:id="@+id/SpeedTextNumber"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:autofillHints="1"
+                android:backgroundTint="@color/lightCoral"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/lightCoral"
+                android:textColorLink="@color/lightCoral"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Switch
+                android:id="@+id/FlatTorusSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:onClick="onClickCyclicalBorders"
+                android:text="@string/flatTorusLabel"
+                android:textColor="@android:color/secondary_text_light"
+                android:textColorHighlight="@color/lightCoral"
+                android:textColorLink="@color/lightRed"
+                android:thumbTint="@color/darkenedWhite"
+                android:trackTint="@color/darkGray" />
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
